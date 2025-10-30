@@ -48,14 +48,7 @@ def metodo_bissecao(f, a, b, epsilon, max_iter):
     return x_k
 
 if __name__ == "__main__":
-
-    # Vamos definir a função f(x) que queremos encontrar a raiz
-    # Exemplo: f(x) = x^3 - x - 2
-    # f(1) = 1 - 1 - 2 = -2 (negativo)
-    # f(2) = 8 - 2 - 2 = 4  (positivo)
-    # A raiz está entre 1 e 2.
-    
-    def minha_funcao(x):
+    def funcao(x):
         return x**3 - x - 2
 
     # --- Definição da "Entrada" ---
@@ -69,7 +62,7 @@ if __name__ == "__main__":
     print(f"Precisão (epsilon): {precisao}")
     print(f"Máximo de iterações: {max_iteracoes}\n")
 
-    raiz_aproximada = metodo_bissecao(minha_funcao, intervalo_a, intervalo_b, precisao, max_iteracoes)
+    raiz_aproximada = metodo_bissecao(funcao, intervalo_a, intervalo_b, precisao, max_iteracoes)
 
     # Exibe o resultado
     if raiz_aproximada is not None:
@@ -77,6 +70,6 @@ if __name__ == "__main__":
         # O :.8f formata o número para 8 casas decimais
         print(f"A raiz aproximada é: {raiz_aproximada:.8f}")
         # O :.2e formata em notação científica (para ver se é próximo de zero)
-        print(f"O valor de f(raiz) é: {minha_funcao(raiz_aproximada):.2e}")
+        print(f"O valor de f(raiz) é: {funcao(raiz_aproximada):.2e}")
     else:
         print("O método falhou em convergir.")
