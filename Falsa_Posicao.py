@@ -38,10 +38,7 @@ def metodo_falsa_posicao(f, a, b, epsilon, max_iter):
         else:
             a = x_k # a <- x_k
             fa = fxk  # Otimização: reutiliza o valor já calculado
-        
-        # Linha 9 (k <- k + 1) é tratada pelo loop 'for'
 
-    # Se o loop terminar sem 'return', o máximo de iterações foi atingido
     print(f"Método atingiu o máximo de {max_iter} iterações sem convergir.")
     return x_k
 
