@@ -1,32 +1,18 @@
-from pylab import *
+import numpy as np
+import matplotlib as plt
 
 def f(x):
-    return exp(x) * sin(x)
+    """Função original."""
+    return np.exp(x) * np.sin(x)
 
 def df(x):
-    return exp(x) * sin(x) + exp(x) * cos(x)
+    """Derivada analítica (exata) de f(x)."""
+    return np.exp(x) * (np.sin(x) + np.cos(x))
 
-def aprox(f, x, h):
+def aprox_progressiva(f, x, h):
+    """Aproximação da derivada pela diferença progressiva (forward difference)."""
     return (f(x + h) - f(x)) / h
 
-def aproxCentral(f, x, h):
+def aprox_central(f, x, h):
+    """Aproximação da derivada pela diferença central (central difference)."""
     return (f(x + h) - f(x - h)) / (2 * h)
-
-if __name__ == "__main__":
-    hh = 0.001
-    xx = arange(-2, 2, hh)
-    yy = df(xx)
-
-    # Diferença progressiva e central
-    h = 0.01
-    x = arange(-2, 2, h)
-    d1 = aprox(f, x, h)
-    d2 = aproxCentral(f, x, h)
-
-    # Exibe grafico
-    # plt.figure(figsize=(8, 15))
-    plot(xx, yy, label='Derivada Analítica')
-    plot(x, d1, 'o-', label='Aprox. Diferença Progressiva')
-    plot(x, d2, 's-', label='Aprox. Diferença Central')
-
-    show()
